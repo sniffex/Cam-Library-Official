@@ -5,6 +5,12 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/02" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/6b" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/52" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/70" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/c0" />
+      <excludeFolder url="file://$MODULE_DIR$/Server/storage/framework/cache/data/ec" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
