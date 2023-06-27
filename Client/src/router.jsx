@@ -10,7 +10,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ErrorPage from './pages/ErrorPage';
 import HomeLogin from './pages/HomeLogin';
-import BookPost from './pages/BookPost';
+import Dashboard from './pages/Dashboard';
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -45,8 +45,8 @@ const router = createBrowserRouter([
 				element: <HomeLogin />,
 			},
 			{
-				path: '/post-books',
-				element: <BookPost/>,
+				path: '/dashboard',
+				element: <Dashboard/>,
 			},
 		],
 	},
