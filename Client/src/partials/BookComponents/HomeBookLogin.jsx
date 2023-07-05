@@ -47,17 +47,16 @@ const HomeBookLogin = () => {
                             </a>
                             <div className="px-2 py-1 bg-white border-2 rounded-lg">
                                 <Link
-                                    to={{
-                                        pathname: '/pdfviewer',
-                                        state: {
-                                            link: item.link,
-                                            title: item.title,
-                                            description: item.description,
-                                        },
-                                    }}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-blue-700 text-gray-900 font-medium"
+                                    to={`/pdfviewer?link=${encodeURIComponent(
+                                        item.link
+                                    )}&title=${encodeURIComponent(
+                                        item.title
+                                    )}&description=${encodeURIComponent(
+                                        item.description
+                                    )}`}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='hover:text-blue-700 text-gray-900 font-medium'
                                 >
                                     Views
                                 </Link>
