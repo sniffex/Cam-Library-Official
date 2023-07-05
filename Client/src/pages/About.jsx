@@ -4,7 +4,9 @@ import Nav from "../partials/Nav.jsx";
 import { useAuth } from '../contexts/AuthContext';
 import axios from "../axios.js";
 import {Navigate} from "react-router-dom";
-
+import Feedback from '../partials/Feedback';
+import cover from '../assets/cover.jpg';
+import BookPost from "./BookPost.jsx";
 export default function About() {
 	const { user, setUser } = useAuth();
 	const isLoggedIn = user !== null;
@@ -12,14 +14,30 @@ export default function About() {
 	return (
 		<>
 			{isLoggedIn ? <NavLog /> : <Nav />}
-			<div className="text-6xl font-bold text-slate-600">About Us</div>
-			<hr className="bg-slate-400 h-1 w-full my-4" />
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam soluta veniam sequi modi nihil eius explicabo quasi totam quidem voluptatibus ex, obcaecati architecto perspiciatis dolorem magni rem vel cupiditate repudiandae?
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione eaque distinctio sunt deleniti voluptatum nostrum expedita voluptatibus aliquid mollitia, nam vero! Sed suscipit saepe quo cupiditate! Voluptatibus illum amet nulla? Eveniet reiciendis voluptas provident aliquid, voluptatum, tempora reprehenderit neque, ad ipsa similique quae dignissimos amet odio distinctio atque! Deserunt animi dicta quisquam voluptates iste dolorum architecto, sapiente numquam ipsa! Odit. Adipisci dignissimos tempora, praesentium excepturi, iste aliquid, debitis rem id aperiam itaque asperiores soluta similique eligendi sint ut necessitatibus architecto quos ab fugiat harum rerum magnam nulla distinctio? Aut, nesciunt. Voluptates doloribus quibusdam voluptatem vero in. Itaque dicta quae error nemo sapiente quos id, magnam numquam maiores vero sed perferendis quia nihil impedit deleniti doloremque repellat! Ullam rem libero ut?
-			</p>
+			<main>
+				<div className="py-16 bg-white dark:bg-gray-900 lg:mt-5 mt-10">
+					<div className="container m-auto text-gray-600 md:px-12 xl:px-6">
+						<div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
+							<div className="md:7/12 lg:w-6/12">
+								<h2 className="text-2xl text-gray-900 dark:text-gray-300 font-bold md:text-5xl">About
+									Cam-Library</h2>
+								<p className="text-xl mt-6 text-gray-600 dark:text-gray-300">Cam-Library is an online
+									library, which has hundreds of books to choose. We provide highest quality of ebook
+									to read.</p>
+								<p className="text-xl mt-4 text-gray-600 dark:text-gray-300"> Nobis minus voluptatibus
+									pariatur dignissimos libero quaerat iure expedita at? Asperiores nemo possimus
+									nesciunt dicta veniam aspernatur quam mollitia.</p>
+							</div>
+							<div className="lg:w-8/12">
+								<img src={cover} alt="" loading="lazy" className="rounded-xl dark:bg-gray-900"/>
+							</div>
+						</div>
+						<div className=' mt-5'>
+							<BookPost/>
+						</div>
+					</div>
+				</div>
+			</main>
 		</>
 	);
 }

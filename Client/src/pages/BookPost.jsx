@@ -46,12 +46,10 @@ const BookPost = () => {
 
   return (
       <>
-        <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-          <div className="container max-w-screen-lg mx-auto">
-            <div>
-              <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+          <div className="container max-w-screen-lg mx-auto dark:bg-gray-900">
+              <div className="dark:bg-gray-900 bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                 <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                  <div className="text-gray-600">
+                  <div className="text-gray-600 dark:text-white">
                     <p className="font-medium text-lg">Book Suggestion form</p>
                     <p>Enter book details.</p>
                   </div>
@@ -59,7 +57,7 @@ const BookPost = () => {
                   <div className="lg:col-span-2">
                     <form onSubmit={handleSubmit}>
                       <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                        <div className="md:col-span-5">
+                        <div className="md:col-span-5  dark:text-white">
                           <label htmlFor="book_name">Book Name</label>
                           <input
                               required={true}
@@ -71,7 +69,7 @@ const BookPost = () => {
                           />
                         </div>
 
-                        <div className="md:col-span-5">
+                        <div className="md:col-span-5  dark:text-white">
                           <label htmlFor="info">Book Info</label>
                           <input
                               required={true}
@@ -84,7 +82,7 @@ const BookPost = () => {
                           />
                         </div>
 
-                        <div className="md:col-span-3">
+                        <div className="md:col-span-3  dark:text-white">
                           <label htmlFor="category">Category</label>
                           <input
                               required={true}
@@ -123,9 +121,7 @@ const BookPost = () => {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
       </>
   );
 };

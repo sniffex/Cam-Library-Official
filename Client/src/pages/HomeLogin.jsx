@@ -10,11 +10,11 @@ const HomeLogin = () => {
         <>
 
         <NavLog/>
-        <main className=" bg-slate-100 w-full mb-28">
+        <main className="dark:bg-gray-900 bg-slate-100 w-full pb-16">
             <HomeBookLogin/>
         </main>
         <Footer /> 
-      
+
     </>
        
     );
