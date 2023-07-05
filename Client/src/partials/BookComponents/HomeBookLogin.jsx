@@ -23,7 +23,7 @@ const HomeBookLogin = () => {
                     <div className="p-24">
                         <div className="flex justify-center items-center">
                             {/*<iframe src="https://drive.google.com/file/d/10K0MSdv2pfe6lLWjuwKRouufpVd6GKuW/preview#page=1" width="500" height="375"></iframe>*/}
-                            {/*<image href={item.image} className='w-24 h-24' />*/}
+                            <img src={item.image} className='w-24 h-24' />
                         </div>
                         <div className="flex flex-col mb-4 mt-2">
                             <p className="text-md font-bold tracking-tight text-gray-900 dark:text-white">
