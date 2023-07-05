@@ -8,7 +8,7 @@ To install the necessary dependencies for the client-side of your application, f
 
 2. Run `npm install` to install the dependencies defined in the `package.json` file.
 
-3. Run `npm start` to start the client.
+3. Run `npm run dev` to start the client.
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
