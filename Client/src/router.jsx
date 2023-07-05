@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage';
 import HomeLogin from './pages/HomeLogin';
 import Dashboard from './pages/Dashboard';
 import BookPost from './pages/BookPost';
+import PDFViewer from "./pages/PDFViewer.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
 			{
 				path: '/about',
 				element: <About />,
+			},
+			{
+				path: '/pdfviewer',
+				element: <PDFViewer />,
 			}
 		],
 	},
