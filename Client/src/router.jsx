@@ -11,6 +11,8 @@ import SignUp from './pages/SignUp';
 import ErrorPage from './pages/ErrorPage';
 import HomeLogin from './pages/HomeLogin';
 import Dashboard from './pages/Dashboard';
+import BookPost from './pages/BookPost';
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -33,6 +35,8 @@ const router = createBrowserRouter([
 				path: '*',
 				element: <ErrorPage />,
 			},
+
+
 		],
 	},
 	{
@@ -48,6 +52,14 @@ const router = createBrowserRouter([
 				path: '/dashboard',
 				element: <Dashboard/>,
 			},
+			{
+				path: '/bookpost',
+				element: <BookPost />,
+			},
+			{
+				path: '/about',
+				element: <About />,
+			}
 		],
 	},
 ]);

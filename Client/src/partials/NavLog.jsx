@@ -17,7 +17,7 @@ const NavLog = () => {
         {name:"Home",link:"/homelogin"},
         {name:"About",link:"/about"},
         {name:"Read",link:"/readbook"},
-        
+        {name:"Post",link:"/bookpost"},
     ];
 
     let [open,setOpen] = useState(false);
