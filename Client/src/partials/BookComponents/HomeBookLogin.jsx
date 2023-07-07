@@ -3,7 +3,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import item from "../Item.jsx";
 
-const HomeBookLogin = () => {
+const HomeBook = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -16,12 +16,14 @@ const HomeBookLogin = () => {
   //try commit
 
   return (
-    <div className="inline-block">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1">
       {data.map((item) => (
         <div
         key={item.id}
         className="max-w-md bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 p-2 mt-24">
-        <img src={item.image_link} className="w-64 h-96" />
+        <div className="flex justify-center">
+            <img src={item.image_link} className="w-64 h-96" />
+          </div>
         <div className="p-4">
           <div className="flex justify-center items-center">
             <div className="flex flex-col mb-4 mt-2">
@@ -65,4 +67,4 @@ const HomeBookLogin = () => {
   );
 };
 
-export default HomeBookLogin;
+export default HomeBook;
