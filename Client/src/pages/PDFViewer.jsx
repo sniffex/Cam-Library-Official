@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 
 const PDFViewer = () => {
@@ -7,6 +7,22 @@ const PDFViewer = () => {
     const link = decodeURIComponent(urlParams.get('link'));
     const title = decodeURIComponent(urlParams.get('title'));
     const description = decodeURIComponent(urlParams.get('description'));
+
+    useEffect(() => {
+        const viewTime = 8000; // 5 seconds
+        const iframe = document.getElementById('pdfIframe');
+
+        // Delay the removal of the iframe after the specified view time
+        const timeoutId = setTimeout(() => {
+            // Remove the iframe from the DOM
+            iframe.parentNode.removeChild(iframe);
+        }, viewTime);
+
+        return () => {
+            // Clean up the timeout when the component is unmounted or updated
+            clearTimeout(timeoutId);
+        };
+    }, []);
 
     return (
         <div className='flex flex-col items-center justify-center h-screen'>
@@ -27,6 +43,7 @@ const PDFViewer = () => {
                 <div className="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
                     <div className="desc p-4 text-gray-800">
                         <iframe
+                            id='pdfIframe'
                             src={link}
                             width='1000'
                             height='675'

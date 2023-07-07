@@ -7,7 +7,7 @@ const BookPost = () => {
   const [info, setInfo] = useState("");
   const [category, setCategory] = useState("");
   const [link, setLink] = useState("");
-
+  const [successMessage, setSuccessMessage] = useState("");
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -19,7 +19,7 @@ const BookPost = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/api/booksuggest", {
+      const response = await fetch("http://localhost:8000/api/booksuggest-store", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,10 +34,11 @@ const BookPost = () => {
       // // Form submitted successfully
       // console.log("Form submitted:", bookData);
       // // Reset form fields
-      // setBookName("");
-      // setInfo("");
-      // setCategory("");
-      // setLink("");
+      setBookName("");
+      setInfo("");
+      setCategory("");
+      setLink("");
+      setSuccessMessage("Book suggestion submitted successfully!");
     } catch (error) {
       console.error(error);
       // Handle error
@@ -65,6 +66,7 @@ const BookPost = () => {
                               name="book_name"
                               id="book_name"
                               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              value={name}
                               onChange={(event) => setBookName(event.target.value)}
                           />
                         </div>
@@ -78,6 +80,7 @@ const BookPost = () => {
                               id="info"
                               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               placeholder=""
+                              value={info}
                               onChange={(event) => setInfo(event.target.value)}
                           />
                         </div>
@@ -91,6 +94,7 @@ const BookPost = () => {
                               id="category"
                               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               placeholder=""
+                              value={category}
                               onChange={(event) => setCategory(event.target.value)}
                           />
                         </div>
@@ -103,6 +107,7 @@ const BookPost = () => {
                               id="link"
                               className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                               placeholder=""
+                              value={link}
                               onChange={(event) => setLink(event.target.value)}
                           />
                         </div>
@@ -118,6 +123,11 @@ const BookPost = () => {
                         </div>
                       </div>
                     </form>
+                    {successMessage && (
+                        <div className="text-green-600 dark:text-green-400 mt-4">
+                          {successMessage}
+                        </div>
+                    )}
                   </div>
                 </div>
               </div>
