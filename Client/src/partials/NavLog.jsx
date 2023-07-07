@@ -19,7 +19,6 @@ const NavLog = () => {
     let Links =[
         {name:"Home",link:"/homelogin"},
         {name:"About",link:"/about"},
-        {name:"Read",link:"/readbook"},
     ];
 
     let [open,setOpen] = useState(false);
@@ -29,30 +28,42 @@ const NavLog = () => {
 		localStorage.removeItem('user');
 		window.location.href = '/';
 	};
+    
 
+    const [data, setData] = useState([]);
 
-
-    // // modal
-    // const [modal, setModel] = useState(false);
-
-    // // Toggle
-    // const toggleModel = () =>{
-    //     setModel(!modal)
-    // }
-
-    // // Search engin
-    // const [filter, setFilter] = useState('');
-
-    // const searchText = (event) =>{
-    //     setFilter(event.target.value);
-    // }
-
-    // let dataSearch = (data).filter(item =>{
-    //     return Object.keys(item).some(key =>
-    //         item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
-    //         )
-
-    // });
+    useEffect(() => {
+        // Make API request here to fetch the data
+        fetch("https://camlibrary.net/api/products-all")
+          .then((response) => response.json())
+          .then((data) => setData(data.slice()))
+          .catch((error) => console.log(error));
+      }, []);
+    
+    
+      // modal
+      const [modal, setModel] = useState(false);
+    
+      // Toggle
+      const toggleModel = () => {
+        setModel(!modal);
+      };
+    
+      // Search engin
+      const [filter, setFilter] = useState("");
+    
+      const searchText = (event) => {
+        setFilter(event.target.value);
+      };
+      let dataSearch = data.filter((item) => {
+        return Object.keys(item).some((key) => {
+          const value = item[key];
+          if (typeof value === "string") {
+            return value.toLowerCase().includes(filter.toLowerCase());
+          }
+          return false;
+        });
+      });
 
     return (
         <>
@@ -75,8 +86,8 @@ const NavLog = () => {
                                     ${open ? 'top-10':'top-[-490px]'} `}>
                         <div className='lg:mt-0 mt-10'>
                             <div class="flex justify-start">
-                                <div class=" xl:w-96">
-                                    {/* onClick={toggleModel} onChange={searchText.bind(this)} */}
+                                <div class=" xl:w-96"
+                                    onClick={toggleModel} onChange={searchText.bind(this)}>
                                     <div  class="input-group relative flex flex-row items-stretch w-full">
                                         <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white dark:bg-gray-900 bg-clip-padding border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none rounded-l-lg" placeholder="Search" aria-label="Search" aria-describedby="button-addon2"/>
                                         <button class="btn px-6 py-2.5 bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded-r-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
@@ -106,42 +117,53 @@ const NavLog = () => {
                     </ul>
 
                 </div>
-
-                {/* {modal &&(
-                        <div className=' 2xl:px-44 xl:px-32 lg:px-24 md:px-16 lg:mt-1 mt-16 px-5  h-auto'>
-                        <div className=' float-right pr-10 absolute mt-1 pl-1'>
-                            <GiCancel onClick={toggleModel} className=' text-gray-700 hover:text-red-500 py-1 ' size="2rem"/>
+                {modal && (
+        <div className="  2xl:px-44 xl:px-32 lg:px-24 md:px-16 lg:mt-1 mt-16 px-5  h-auto">
+          <div className=" float-right pr-10 absolute mt-1 pl-1">
+            <GiCancel
+              onClick={toggleModel}
+              className=" text-gray-700 hover:text-red-500 py-1 "
+              size="2rem"
+            />
+          </div>
+          <div className=" flex flex-wrap gap-2 rounded-md p-5 px-10 w-full h-96 dark:bg-gray-900 bg-white shadow-lg border-2 overflow-y-scroll">
+            {dataSearch.map((item, index) => {
+              return (
+                <div className="flex flex-col gap-2 over">
+                  <div className=" flex flex-row mb-3 gap-2 border-2 rounded-md">
+                    <div className="flex justify-center">
+                      <img
+                        src={item.image_link}
+                        alt=""
+                        target="_blank"
+                        className=" rounded-sm w-20 h-32"
+                      />
+                    </div>
+                    <div className="flex flex-col mt-1">
+                      <p class=" text-md font-bold tracking-tight text-gray-900 dark:text-white">
+                        {item.title}
+                      </p>
+                      <p className="text-xs">{item.description}</p>
+                      <div className=" flex flex-row gap-1 mt-3">
+                        <div className="px-2 py-1 bg-white border-2 rounded-lg">
+                          <a
+                            href={item.book_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className=" hover:text-blue-700 text-gray-900 font-medium"
+                          >
+                            Views
+                          </a>
                         </div>
-                        <div className=" flex flex-wrap gap-2 rounded-md p-5 px-10 w-full h-96 bg-white shadow-lg border-2 overflow-y-scroll">
-                                {dataSearch.map((item, index)=>{
-                                    return(
-                                        <div className='flex flex-row gap-2 over'>
-                                            <div className=' flex flex-col mb-3 gap-2 border-2 p-2 rounded-md'>
-                                                <div className='flex justify-center'>
-                                                    <img src={item.image} alt="" target="_blank" className=' rounded-sm w-20 h-32' />
-                                                </div>
-                                                <div className='flex flex-col mt-1'>
-                                                    <p class=" text-md font-bold tracking-tight text-gray-900 dark:text-white">{item.tittle}</p>
-                                                    <p className='text-xs'>{item.smalltittle}</p> 
-                                                    <div className=' flex flex-row gap-1 mt-3'>
-                                                    <a href={item.download} target="_blank" rel="noopener noreferrer" to  class="inline-flex items-center px-3 py-1 w-28 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                        Download
-                                                        <AiOutlineDownload size="1.5rem" className='pl-1'/>
-                                                    </a>
-                                                    <div className='px-2 py-1 bg-white border-2 rounded-lg'> 
-                                                    <a href={item.link} target='_blank' rel="noopener noreferrer" className=' hover:text-blue-700 text-gray-900 font-medium'>Views</a>
-                                                    </div>
-                                                    </div>
-                                            
-                                                </div>
-                                            </div>
-                                                
-                                        </div>
-                                    )
-                                })}
-                        </div>
-                        </div>
-                    )} */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
             </nav>
         </>

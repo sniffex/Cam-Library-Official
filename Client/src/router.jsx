@@ -14,7 +14,7 @@ import Dashboard from './pages/Dashboard';
 import BookPost from './pages/BookPost';
 import PDFViewer from "./pages/PDFViewer.jsx";
 import DataByCategory from './pages/DataByCategory';
-
+import Viewer from "./pages/Viewer.jsx";
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
 				path: '*',
 				element: <ErrorPage />,
 			},
+			
 
 
 		],
@@ -70,6 +71,7 @@ const router = createBrowserRouter([
 				path: '/pdfviewer',
 				element: <PDFViewer />,
 			},
+			
 		],
 	},
 ]);
