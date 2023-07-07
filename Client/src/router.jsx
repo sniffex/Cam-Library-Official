@@ -13,6 +13,7 @@ import HomeLogin from './pages/HomeLogin';
 import Dashboard from './pages/Dashboard';
 import BookPost from './pages/BookPost';
 import PDFViewer from "./pages/PDFViewer.jsx";
+import DataByCategory from './pages/DataByCategory';
 
 const router = createBrowserRouter([
 	{
@@ -58,9 +59,17 @@ const router = createBrowserRouter([
 				element: <About />,
 			},
 			{
+				path: '/profile',
+				element: <Profile />,
+			},
+			{
+				path: '/category',
+				element: <DataByCategory />,
+			},
+			{
 				path: '/pdfviewer',
 				element: <PDFViewer />,
-			}
+			},
 		],
 	},
 ]);

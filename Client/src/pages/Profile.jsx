@@ -25,17 +25,15 @@ export default function Profile() {
 							<h1 class="text-4xl font-medium dark:text-gray-300 text-gray-700">{user.name}</h1>
 							<p class=" text-gray-500 dark:text-gray-300 mt-3">Email : {user.email}</p>
 							<p class="text-gray-500 dark:text-gray-300 text-sm">created at : {user.created_at}</p>
-							<p class="text-gray-500 dark:text-gray-300">Post : 12 books</p>
-
 						</div>
 
 					</div>
 					<div className='flex flex-row justify-center items-center mt-10 gap-2'>
 
-						<Link to={'/postbooks'}>
+						<Link to={'/about'}>
 							<button className=' ml-0 md:ml-6 pt-2 p-2 rounded-md border-2 bg-indigo-600 mb-1'>
 								<div className='flex flex-row gap-1'>
-									<p className='dark:text-white'>Upload Books</p>
+									<p className='dark:text-white'>Request Books</p>
 									<BiSolidBookAdd size="1.5rem" className='pl-1 text-white '/>
 
 								</div>

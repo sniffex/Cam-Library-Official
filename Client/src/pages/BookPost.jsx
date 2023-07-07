@@ -65,7 +65,7 @@ const BookPost = () => {
                               type="text"
                               name="book_name"
                               id="book_name"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              className="h-10 border text-gray-800 mt-1 rounded px-4 w-full bg-gray-50"
                               value={name}
                               onChange={(event) => setBookName(event.target.value)}
                           />
@@ -78,7 +78,7 @@ const BookPost = () => {
                               type="text"
                               name="info"
                               id="info"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              className="h-10 border mt-1 text-gray-800 rounded px-4 w-full bg-gray-50"
                               placeholder=""
                               value={info}
                               onChange={(event) => setInfo(event.target.value)}
@@ -92,7 +92,7 @@ const BookPost = () => {
                               type="text"
                               name="category"
                               id="category"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              className="h-10 border mt-1 text-gray-800 rounded px-4 w-full bg-gray-50"
                               placeholder=""
                               value={category}
                               onChange={(event) => setCategory(event.target.value)}
@@ -105,7 +105,7 @@ const BookPost = () => {
                               type="text"
                               name="link"
                               id="link"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                              className="h-10 border mt-1 text-gray-800 rounded px-4 w-full bg-gray-50"
                               placeholder=""
                               value={link}
                               onChange={(event) => setLink(event.target.value)}

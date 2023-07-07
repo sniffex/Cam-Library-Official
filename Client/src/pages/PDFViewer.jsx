@@ -25,7 +25,7 @@ const PDFViewer = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center justify-center h-screen'>
+        <div className='flex dark:bg-gray-900 bg-white flex-col items-center justify-center h-screen'>
             {/*<div className='flex flex-col items-center justify-center'>*/}
             {/*    <div className='flex justify-center items-center'>*/}
             {/*        <h2>{title}</h2>*/}
