@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import { BsList } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Logo from "../assets/logo.png";
 import { GiCancel } from "react-icons/gi";
 
 const Nav = () => {
@@ -50,6 +51,7 @@ const Nav = () => {
           <div className=" font-bold text-2xl cursor-pointer flex items-center dark:text-white  text-gray-800">
             <span className="text-3xl text-indigo-600 mr-1 pt-1">
               {/* <DiAtom size="2rem" /> */}
+              <img src={Logo} alt="logo" className=" w-14 h-14" />
             </span>
             Cam-Library
           </div>
