@@ -19,7 +19,7 @@ const BookPost = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/api/booksuggest-store", {
+      const response = await fetch("https://camlibrary.net/api/booksuggest-store", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -8,7 +8,7 @@ const HomeBookLogin = () => {
 
   useEffect(() => {
     // Make API request here to fetch the data
-    fetch("http://127.0.0.1:8000/api/products-all")
+    fetch("https://camlibrary.net/api/products-all")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.log(error));

@@ -1,41 +1,68 @@
-import React  from 'react';
+import React, { useEffect, useState } from "react";
 import { AiOutlineDownload } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import item from "../Item.jsx";
 
-const  HomeBook = ({item}) => {
+const HomeBookLogin = () => {
+  const [data, setData] = useState([]);
 
-    const { image_link, title, book_info, description, book_link, download_link } = item;
+  useEffect(() => {
+    // Make API request here to fetch the data
+    fetch("https://camlibrary.net/api/products-all")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.log(error));
+  }, []);
+  //try commit
 
-    return (
-        <>
-            <div className=' inline-block'>
-                <div class=" mr-2 max-w-md bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    
-                    <div class="p-4" >
-                        <div className='flex justify-center items-center'><img src={image_link} target="_blank" alt="" className='w-40 h-60' /></div>
-                        <div className='flex flex-col mb-4 mt-2'>
-                            <p class=" text-md font-bold tracking-tight text-gray-900 dark:text-white">{title}</p>
-                            <p className='text-xs'>{description}</p>
-                        </div>
-                        
-                        <span className='flex flex-row gap-2'>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{book_info}</p>
-                            
-                        </span>
-                        <div className='flex flex-row gap-2'>
-                            <a href={download_link} target="_blank" rel="noopener noreferrer" to  class="inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Download
-                                <AiOutlineDownload size="1.5rem" className='pl-1'/>
-                            </a>
-                            <div className='px-2 py-1 bg-white border-2 rounded-lg'> 
-                            <a href={book_link} target='_blank' rel="noopener noreferrer" className=' hover:text-blue-700 text-gray-900 font-medium'>Views</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
+  return (
+    <div className="inline-block">
+      {data.map((item) => (
+        <div
+        key={item.id}
+        className="max-w-md bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 p-2 mt-24">
+        <img src={item.image_link} className="w-64 h-96" />
+        <div className="p-4">
+          <div className="flex justify-center items-center">
+            <div className="flex flex-col mb-4 mt-2">
+              <p className="text-md font-bold tracking-tight text-gray-900 dark:text-white">
+                {item.title}
+              </p>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {item.description}
+              </p>
+              <div className="flex flex-row gap-2">
+                <a
+                  //   href={item.download}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-3 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Download
+                  <AiOutlineDownload size="1.5rem" className="pl-1" />
+                </a>
       
-    );
+                <div className="px-2 py-1 bg-white border-2 rounded-lg">
+                  <Link
+                    to={`/pdfviewer?link=${encodeURIComponent(
+                      item.book_link
+                    )}&title=${encodeURIComponent(
+                      item.title
+                    )}&description=${encodeURIComponent(item.description)}`}
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-700 text-gray-900 font-medium"
+                  >
+                    Views
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      ))}
+    </div>
+  );
 };
 
-export default HomeBook;
+export default HomeBookLogin;

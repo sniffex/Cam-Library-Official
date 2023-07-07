@@ -10,7 +10,7 @@ const Home = ({ category }) => {
         useEffect(() => {
             const fetchData = async () => {
             const response = await fetch(
-                `https://example.com/api/products-all?category=${category}`
+                `https://camlibrary.net/api/products-all?category=${category}`
             );
             const data = await response.json();
             setData(data);

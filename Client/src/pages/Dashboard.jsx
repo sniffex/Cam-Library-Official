@@ -4,7 +4,7 @@ const Dashboard = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/users').then(response => {
+    axios.get('https://camlibrary.net/api/users').then(response => {
       setUsers(response.data);
     });
   }, []);

@@ -6,7 +6,7 @@ const DataByCategory = ({ category }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/products-all?categories-all=${category}`
+        `https://camlibrary.net/api/products-all?categories-all=${category}`
       );
       const products = await response.json();
       setProducts(products);
