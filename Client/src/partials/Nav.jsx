@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import { BsList } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import Logo from "../Assets/logo.png";
 import { GiCancel } from "react-icons/gi";
 
 const Nav = () => {
